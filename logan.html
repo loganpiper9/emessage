@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="green">
+	<meta name="apple-mobile-web-app-title" content="eMessage">
+	<link rel="apple-touch-icon" href="/images/icon-72x72.png" sizes="72x72">
+	<link rel="apple-touch-icon" href="/assets/images/icons/icon-96x96.png" sizes="96x96">
+	<link rel="apple-touch-icon" href="/assets/images/icons/icon-128x128.png" sizes="128x128">
+	<link rel="apple-touch-icon" href="/assets/images/icons/icon-144x144.png" sizes="144x144">
+	<link rel="apple-touch-icon" href="/assets/images/icons/icon-152x152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="/assets/images/icons/icon-192x192.png" sizes="192x192">
+	<link rel="apple-touch-icon" href="/assets/images/icons/icon-384x384.png" sizes="384x384">
+	<link rel="apple-touch-icon" href="/assets/images/icons/icon-512x512.png" sizes="512x512">
+	<title>eMessage</title>	
+	<style>
+		@media only screen and (min-width: 1200px) {
+			form { margin: 0 !important; padding: 0 !important; }
+
+			* {
+				font-family: "Lucida Console", "Courier New", monospace;
+			}
+
+			body {
+				background-color: darkgray;
+			}
+		
+			#urgent {
+				width: 40%;
+				height: 25%;
+				background-color: yellow;
+			}
+
+			#emergency {
+				width: 30%;
+				height: 25%;
+				background-color: red;				
+			}
+
+			#clear {
+				width: 40%;
+				height: 25%;
+				background-color: green;
+			}
+
+			#panic {
+				width: 50%;
+				height: 20%;
+				background-color: teal;		
+				color: red;		
+				font-weight: bold;
+				font-size: 25px;
+			}
+
+			#text {
+				color: red;
+			}
+
+			#e {
+				color: red;
+				font-size: 20px;
+			}
+
+			.container {
+				  border: 10px solid pink;
+				  border-image: repeating-linear-gradient(
+				    -55deg,
+				    #000,
+				    #000 20px,
+				    #ffb101 20px,
+				    #ffb101 40px
+				  ) 10;
+			    position: absolute;
+			    left: 50%;
+			    top: 50%;
+			    -webkit-transform: translate(-50%, -50%);
+			    transform: translate(-50%, -50%);
+			    width: 15%;
+			    height: 15%;
+			    text-align: center;
+			    background-color: black;
+			}
+
+			input[type=tel] {
+				height: 25px;
+			}
+		}
+
+		@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+			* {
+				font-family: "Lucida Console", "Courier New", monospace;
+			}
+
+			body {
+				background-color: darkgray;
+			}
+		
+			button {
+				width: 20%;
+				height: 10%;
+			}
+
+			#text {
+				color: red;
+			}
+
+			#e {
+				color: red;
+				font-size: 20px;
+			}
+
+			.container {
+				  border: 10px solid pink;
+				  border-image: repeating-linear-gradient(
+				    -55deg,
+				    #000,
+				    #000 20px,
+				    #ffb101 20px,
+				    #ffb101 40px
+				  ) 10;
+			    position: absolute;
+			    left: 50%;
+			    top: 50%;
+			    -webkit-transform: translate(-50%, -50%);
+			    transform: translate(-50%, -50%);
+			    width: 90%;
+			    height: 40%;
+			    text-align: center;
+			    background-color: black;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<p id="e" class="e">Choose an alert to send.</p>
+		<form action="/sendAlert" method="POST">
+			<input type="hidden" id="name" name="name" value="Logan">
+			<input type="hidden" id="alert" name="alert" value="All Clear">
+			<input type="submit" id="clear" value="All Clear">All Clear</input>
+		</form>
+		<form action="/sendAlert" method="POST">
+			<input type="hidden" id="name" name="name" value="Logan">
+			<input type="hidden" id="alert" name="alert" value="Urgent">
+			<input type="submit" id="urgent" value="Urgent">Urgent</input>
+		</form>
+		<form action="/sendAlert" method="POST">
+			<input type="hidden" id="name" name="name" value="Logan">
+			<input type="hidden" id="alert" name="alert" value="Emergency">
+			<input type="submit" id="emergency" value="Emergency">Emergency</input>
+		</form>
+		<form action="/sendAlert" method="POST">
+			<input type="hidden" id="name" name="name" value="Logan">
+			<input type="hidden" id="alert" name="alert" value="Panic">
+			<input type="submit" id="panic" value="Panic">Panic</input>
+		</form>		
+	</div>
+</body>
+</html>
